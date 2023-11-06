@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "pyfa-converter-v2"
+version = "2.0.0rc1"
+description = "Pydantic to FastAPI model converter."
+authors = ["Egor Ternovoy <cofob@riseup.net>"]
+license = "GNU Lesser General Public License v3.0 only"
+homepage = "https://github.com/AezaGroup/pyfa-converter-v2"
+repository = "https://github.com/AezaGroup/pyfa-converter-v2"
+readme = "README.md"
+
+include = ["README.md", "LICENSE"]
+
+[tool.poetry.dependencies]
+python = ">= 3.8.1, < 4.0"
+fastapi = ">= 0.100"
+pydantic = ">= 2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.0.0"
+httpx = "^0.23.0"
+pytest_asyncio = "^0.19.0"
+pytest-mock = "*"
+mypy = "^1"
+black = "^23.10.1"
+isort = "^5.12.0"
+python-multipart = "^0.0.5"
+flake8 = "^6.1.0"
+
+[build-system]
+requires = ["poetry-core>=1.2.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+target-version = ['py38']

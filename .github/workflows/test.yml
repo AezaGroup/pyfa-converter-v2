@@ -1,0 +1,54 @@
+name: Test
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+
+    name: Python ${{ matrix.python-version }}
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Setup poetry
+        run: pipx install poetry
+
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "poetry"
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Check formatting
+        run: |
+          poetry run black --check  .
+          poetry run isort --profile black --check-only --py 38 .
+
+      - name: Install mypy types
+        continue-on-error: true
+        run: |
+          poetry run mypy --install-types --non-interactive pyfa_converter_v2/
+
+      - name: Check mypy
+        run: |
+          poetry run mypy pyfa_converter_v2/
+
+      - name: Check flake8
+        run: |
+          poetry run flake8 .
+
+      - name: Run tests
+        run: |
+          poetry run pytest .
