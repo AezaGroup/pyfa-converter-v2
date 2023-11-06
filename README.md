@@ -39,7 +39,7 @@ async def create_article(article: ArticleSchema = QueryDepends(ArticleSchema)):
     return {"id": 1, "title": article.title, "content": article.content}
 ```
 
-Available converters: `QueryDepends`, `BodyDepends`, `FormDepends`. You can add new types via `PyFaDepends`.
+Available converters: `QueryDepends`, `BodyDepends` and `FormDepends`. You can add new types via `PyFaDepends`.
 
 ## Credits
 
