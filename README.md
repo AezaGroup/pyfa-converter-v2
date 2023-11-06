@@ -39,6 +39,8 @@ async def create_article(article: ArticleSchema = QueryDepends(ArticleSchema)):
     return {"id": 1, "title": article.title, "content": article.content}
 ```
 
+Available converters: `QueryDepends`, `BodyDepends`, `FormDepends`. You can add new types via `PyFaDepends`.
+
 ## Credits
 
 [![aeza logo](https://w3s.link/ipfs/bafybeibdusnw63pr4a6otvtl6eqrydw7vi7l2r6q5p4woyltthmiipj77u/logo.png)](https://aeza.net/?utm_source=github&utm_medium=banner&utm_campaign=open-source&utm_id=pyfa-converter-v2)
