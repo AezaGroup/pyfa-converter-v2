@@ -3,12 +3,10 @@ name = "pyfa-converter-v2"
 version = "2.0.0rc1"
 description = "Pydantic to FastAPI model converter."
 authors = ["Egor Ternovoy <cofob@riseup.net>"]
-license = "GNU Lesser General Public License v3.0 only"
+license = "LGPL-3.0-only"
 homepage = "https://github.com/AezaGroup/pyfa-converter-v2"
 repository = "https://github.com/AezaGroup/pyfa-converter-v2"
 readme = "README.md"
-
-include = ["README.md", "LICENSE"]
 
 [tool.poetry.dependencies]
 python = ">= 3.8.1, < 4.0"
